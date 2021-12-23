@@ -27,15 +27,11 @@ public:
 
     void concat(MyVector anotherVector);
 
-    void increaseSizeIfNeeded(int elementsAmount=1);
-
     void printVector();
 
     void remove(int position);
 
     void remove(int startPosition, int endPosition);
-
-    void decreaseSizeIfNeeded(int elementsAmount=1);
 
     MyVector copyVector();
 
@@ -48,6 +44,10 @@ public:
     int getElement(int index);
 
 private:
+    void increaseSizeIfNeeded(int elementsAmount=1);
+
+    void decreaseSizeIfNeeded(int elementsAmount=1);
+
     int* copyArray(const int* firstArray) const;
 
     void printDynamicArray(int limit);

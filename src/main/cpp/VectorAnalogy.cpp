@@ -34,7 +34,7 @@ void MyVector::add(int element, int position) {
         newArray[i] = this->array[i-1];
 
     // to avoid memory leak
-    delete this->array;
+    delete[] this->array;
     this->array = newArray;
 }
 
@@ -57,7 +57,7 @@ void MyVector::add(const int elements[], int elementsAmount, int position) {
     for (int i = position + elementsAmount; i < this->length; i++)
         newArray[i] = this->array[i - elementsAmount];
 
-    delete this->array;
+    delete[] this->array;
     this->array = newArray;
 }
 
@@ -79,7 +79,7 @@ void MyVector::increaseSizeIfNeeded(int elementsAmount) {
 
         // to avoid memory leak
         int *newArray = copyArray(this->array);
-        delete this->array;
+        delete[] this->array;
         this->array = newArray;
     }
 }
@@ -102,7 +102,7 @@ void MyVector::remove(int position) {
     for (int i = position + 1; i < length; i++)
         newArray[i] = this->array[i + 1];
 
-    delete this->array;
+    delete[] this->array;
     this->array = newArray;
 }
 
@@ -121,7 +121,7 @@ void MyVector::remove(int startPosition, int endPosition) {
     for (int i = startPosition; i < this->length; i++)
         newArray[i] = this->array[i + elementsAmount];
 
-    delete this->array;
+    delete[] this->array;
     this->array = newArray;
 }
 
@@ -163,5 +163,5 @@ int* MyVector::asArray() {return this->array;}
 MyVector::~MyVector() {
     this->capacity = 0;
     this->length = 0;
-    delete this->array;
+    delete[] this->array;
 }
